@@ -27,9 +27,8 @@ class Main implements Callable<Integer> {
      */
 
     enum Mode { SHOWALL, ADD, MODIFY, SHOW, DELETE, NONE }
-    String arg1;
-    String arg2;
-    String arg3;
+
+    String arg;
 
     @CommandLine.Parameters(
             index = "0",
@@ -46,34 +45,34 @@ class Main implements Callable<Integer> {
 
     @Option(
             names = {"-a","--ADD"},
-            description = "Add new entry to the wiki:\n Arg1 : entry name\n Arg2 : \"Description\"\n" +
-                    " Exemple : --a nano \"my new description\"")
-    void setAdd(String s1, String s2) {mode = Mode.ADD; arg1 = s1; arg2 = s2;}
+            description = "Add new entry to the wiki:\n Arg1 : entry name\n Arg2 : Description\n" +
+                    " Exemple : --a nano my new description")
+    void setAdd(String s1, String s2) {mode = Mode.ADD; arg = s1;}
 
     @Option(
             names = {"-m","--MODIFY"},
-            description = "Modify an existing entry : --m nameWikiEntry newName \"my new description\"\n" +
+            description = "Modify an existing entry : --m nameWikiEntry newName my new description\n" +
                     "Exemple : --m nano nanov2 \"new decription\"")
-    void setModifiy(String s1, String s2, String s3) {mode = Mode.ADD; arg1 = s1; arg2 = s2; arg3 = s3;}
+    void setModifiy(String s1) {mode = Mode.MODIFY; arg = s1;}
 
     @Option(
             names = {"-sh","--SHOW"},
             description = "Show an existing entry :\n Exemple: --sh name")
-    void setShow(String s1) {mode = Mode.SHOW; arg1 = s1;}
+    void setShow(String s1) {mode = Mode.SHOW; arg = s1;}
 
     @Option(
             names = {"-del","--DELETE"},
             description = "Delete an existing entry :\n Exemple: --del name")
-    void setDelete(String s1) {mode = Mode.DELETE; arg1 = s1;}
+    void setDelete(String s1) {mode = Mode.DELETE; arg = s1;}
 
 
     @Override
     public Integer call() {
         switch(mode) {
             case NONE -> System.out.println("try --help or -help\n");
-            case SHOWALL -> System.out.println(arg1);
-            case ADD -> System.out.println(arg1 + arg2 + arg3);
-            case MODIFY -> System.out.println(arg1 + arg2 + arg3);
+            case SHOWALL -> System.out.println(arg);
+            case ADD -> System.out.println(arg);
+            case MODIFY -> System.out.println(arg);
             default -> System.out.println("ceci est la commande pour defaut lcase\n");
         }
         return 0;
