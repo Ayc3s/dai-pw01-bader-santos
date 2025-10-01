@@ -23,10 +23,10 @@ class Main implements Callable<Integer> {
     enum Mode : The reason behind this enum is to implement nicely the switch in the main,
     so we do not have 100 if else.
 
-    It was suggested by Chatgpt, especially the "setter" to modify our enum
+    It was suggested by Chatgpt, especially the "setter" to set the enum
      */
 
-    enum Mode { SHOWALL, ADD, MODIFY, SHOW, DELETE, NONE }
+    enum Mode { SHOWALL, ADD, MODIFY, SHOW, DELETE}
 
     String arg;
 
@@ -36,7 +36,7 @@ class Main implements Callable<Integer> {
             defaultValue = "wiki.txt")
     protected String filePath;
 
-    Mode mode = Mode.NONE; // valeur par défaut
+    Mode mode = null; // valeur par défaut
 
     @Option(
             names = {"-sa", "--showall"},
@@ -46,30 +46,29 @@ class Main implements Callable<Integer> {
     @Option(
             names = {"-a","--ADD"},
             description = "Add new entry to the wiki:\n Arg1 : entry name\n Arg2 : Description\n" +
-                    " Exemple : --a nano my new description")
-    void setAdd(String s1, String s2) {mode = Mode.ADD; arg = s1;}
+                    " Exemple : --a \"nano myNewDescription\"")
+    void setAdd(String s1) {mode = Mode.ADD; arg = s1;}
 
     @Option(
             names = {"-m","--MODIFY"},
-            description = "Modify an existing entry : --m nameWikiEntry newName my new description\n" +
+            description = "Modify an existing entry : --m \"nameWikiEntry newName myNewDescription\"\n" +
                     "Exemple : --m nano nanov2 \"new decription\"")
     void setModifiy(String s1) {mode = Mode.MODIFY; arg = s1;}
 
     @Option(
             names = {"-sh","--SHOW"},
-            description = "Show an existing entry :\n Exemple: --sh name")
+            description = "Show an existing entry :\n Exemple: --sh \"name\"")
     void setShow(String s1) {mode = Mode.SHOW; arg = s1;}
 
     @Option(
             names = {"-del","--DELETE"},
-            description = "Delete an existing entry :\n Exemple: --del name")
+            description = "Delete an existing entry :\n Exemple: --del \"name\"")
     void setDelete(String s1) {mode = Mode.DELETE; arg = s1;}
 
 
     @Override
     public Integer call() {
         switch(mode) {
-            case NONE -> System.out.println("try --help or -help\n");
             case SHOWALL -> System.out.println(arg);
             case ADD -> System.out.println(arg);
             case MODIFY -> System.out.println(arg);
