@@ -19,6 +19,13 @@ import java.util.concurrent.Callable;
         mixinStandardHelpOptions = true)
 class Main implements Callable<Integer> {
 
+    /*
+    enum Mode : The reason behind this enum is to implement nicely the switch in the main,
+    so we do not have 100 if else.
+
+    It was suggested by Chatgpt, especially the "setter" to modify our enum
+     */
+
     enum Mode { SHOWALL, ADD, MODIFY, SHOW, DELETE, NONE }
     String arg1;
     String arg2;
@@ -33,21 +40,31 @@ class Main implements Callable<Integer> {
     Mode mode = Mode.NONE; // valeur par défaut
 
     @Option(
-            names = {"--s", "-showall"},
+            names = {"-sa", "--showall"},
             description = "Show all entry of the wiki")
     void setShowAll(boolean flag) {mode = Mode.SHOWALL;}
 
     @Option(
-            names = {"--a","-ADD"},
+            names = {"-a","--ADD"},
             description = "Add new entry to the wiki:\n Arg1 : entry name\n Arg2 : \"Description\"\n" +
                     " Exemple : --a nano \"my new description\"")
     void setAdd(String s1, String s2) {mode = Mode.ADD; arg1 = s1; arg2 = s2;}
 
     @Option(
-            names = {"--m","-MODIFY"},
+            names = {"-m","--MODIFY"},
             description = "Modify an existing entry : --m nameWikiEntry newName \"my new description\"\n" +
                     "Exemple : --m nano nanov2 \"new decription\"")
     void setModifiy(String s1, String s2, String s3) {mode = Mode.ADD; arg1 = s1; arg2 = s2; arg3 = s3;}
+
+    @Option(
+            names = {"-sh","--SHOW"},
+            description = "Show an existing entry :\n Exemple: --sh name")
+    void setShow(String s1) {mode = Mode.SHOW; arg1 = s1;}
+
+    @Option(
+            names = {"-del","--DELETE"},
+            description = "Delete an existing entry :\n Exemple: --del name")
+    void setDelete(String s1) {mode = Mode.DELETE; arg1 = s1;}
 
 
     @Override
