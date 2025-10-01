@@ -1,17 +1,31 @@
 package ch.heigvd;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-public class Main {
-    public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+import java.util.concurrent.Callable;
+import picocli.CommandLine;
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
-        }
+@CommandLine.Command(
+        name = "hello",
+        description = "Print a 'Hello World!' type of message.",
+        version = "1.0.0",
+        showDefaultValues = true,
+        mixinStandardHelpOptions = true)
+class Main implements Callable<Integer> {
+
+    @CommandLine.Parameters(
+            index = "0",
+            description = "The name of the user.",
+            defaultValue = "World")
+    protected String name;
+
+    @Override
+    public Integer call() {
+        System.out.println("Hello " + name + "!");
+        return 0;
+    }
+
+    public static void main(String... args) {
+        int exitCode = new CommandLine(new Main()).execute(args);
+
+        System.exit(exitCode);
     }
 }
