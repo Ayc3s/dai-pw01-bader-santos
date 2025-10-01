@@ -69,9 +69,11 @@ class Main implements Callable<Integer> {
     @Override
     public Integer call() {
         switch(mode) {
-            case SHOWALL -> System.out.println(arg);
-            case ADD -> System.out.println(arg);
-            case MODIFY -> System.out.println(arg);
+            case SHOWALL -> WikiManager.ShowAll(filePath);
+            case ADD -> WikiManager.Add(filePath,arg);
+            case MODIFY -> WikiManager.Modify(filePath,arg);
+            case SHOW -> WikiManager.Show(filePath,arg);
+            case DELETE -> WikiManager.Delete(filePath,arg);
             default -> System.out.println("ceci est la commande pour defaut lcase\n");
         }
         return 0;
