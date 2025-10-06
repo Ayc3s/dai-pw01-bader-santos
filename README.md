@@ -3,8 +3,6 @@
   <h1>DAI 2025 - project 01 - Bader Gabriel Santos Mauro</h1>
 </div>
 
-# Project description
-
 **Wiki** is a Java-based command-line application designed to help users easily manage personal notes or structured information — much like a simplified offline wiki system.
 It allows you to create, read, update, and delete text-based entries stored in a plain .txt file, using simple terminal commands.
 
