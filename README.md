@@ -1,36 +1,112 @@
-# DAI 2025 - project 01 - Bader Santos
+<div style="display: flex; align-items: center; justify-content: space-between;">
+  <h1>DAI 2025 - project 01 - Bader Gabriel Santos Mauro</h1>
+  <img src="img/heig_logo.png" alt="Wiki CLI Logo" width="200" height="100" style="border-radius: 10px;"/>
+</div>
+
+# Project description
+
+**Wiki** is a Java-based command-line application designed to help users easily manage personal notes or structured information — much like a simplified offline wiki system.
+It allows you to create, read, update, and delete text-based entries stored in a plain .txt file, using simple terminal commands.
+
+It was developped with Maven for project management and Picocli for command-line.
 
 ---
 
-# Description
+# Goal of the project
 
-A simple CLI wiki that allows the user to :
-- add
-- modify
-- delete
-- show
-his own articles.
+- Gain hands-on experience with Maven and Picocli.
+- Design a simple, functional command-line application.
+- Apply a collaborative workflow with github.
 
-*By articles, we mean : Command, Own wiki, Post, Topics, ...*
+---
 
-Exemple:
+# Author
+
+HEIGVD - 2025 DAI
+
+**Gabriel Bader**
+
+**Mauros Santos**
+
+---
+
+
+# Main features
+
+
+| Mode      | Command                                     | Description                |
+| --------- | ------------------------------------------- | -------------------------- |
+| `SHOWALL` | `--showall`                                 | Displays all wiki entries  |
+| `ADD`     | `--ADD "Name Description"`                  | Adds a new entry           |
+| `MODIFY`  | `--MODIFY "OldName NewName NewDescription"` | Modifies an existing entry |
+| `SHOW`    | `--SHOW "Name"`                             | Displays a specific entry  |
+| `DELETE`  | `--DELETE "Name"`                           | Deletes an entry           |
+
+
+Quick exemple:
 ``` bash
 dai-pw01-bader-santos.jar --show nano
-    nano : will open an interface that wiil allow you to read/modify a file
+output: nano : will open an interface that allow you to read/modify a file
 ```
 ---
 
 # CLI usage
+
 ``` bash
 
 Usage: dai-pw01-bader-santos.jar [COMMAND]
-A small CLI with subcommands to demonstrate picocli.
-  --new <name>      Adds a new article.
-  --modify <name>   Modifies an existing article.
-  --delete <name>   Deletes an existing article.
-  --show <name>     Shows information of an existing article.
-  -a --showall      Shows list of all articles.
-  -h, --help        Show this help message and exit.
-  -V, --version     Print version information and exit.
-```
+java -jar java-intellij-idea-and-maven-1.0-SNAPSHOT.jar --help
+Usage: Wiki [-hV] [-sa] [-a=<add>] [-del=<delete>] [-m=<modifiy>] [-sh=<show>]
+            <filePath>
+Open and create you own wiki
+      <filePath>           Destination file of the wiki, by default, will be
+                             written in default project folder
+                             Default: wiki.txt
+  -a, --ADD=<add>          Add new entry to the wiki:
+                            Arg1 : entry name
+                            Arg2 : Description
+                            Exemple : --a "nano myNewDescription"
+      -del, --DELETE=<delete>
+                           Delete an existing entry :
+                            Exemple: --del "name"
+  -h, --help               Show this help message and exit.
+  -m, --MODIFY=<modifiy>   Modify an existing entry : --m "nameWikiEntry
+                             newName myNewDescription"
+                           Exemple : --m nano nanov2 "new decription"
+      -sa, --showall       Show all entry of the wiki
+      -sh, --SHOW=<show>   Show an existing entry :
+                            Exemple: --sh "name"
+  -V, --version            Print version information and exit.
 
+```
+---
+
+# Exemple
+
+In this section, we will see a detailed exemple of the usage of our **wiki** :
+
+1. Empty textfile at the root of the directory :
+2. add multiple entries
+3. Modify an existing entries
+4. Show all
+5. Delete an entry
+6. Show specifc entry
+
+
+
+# To continue
+
+As mentioned earlier in the Goal section, this project was a valuable first experience with Java and various tools such as Maven and Picocli.
+We are pleased with the outcome of this work; however, as an introductory project, we did not go as far as we originally intended.
+
+For future improvements, we would like to:
+
+- Refine the overall structure of the application
+
+- Add support for categories and keyword-based search
+
+- Improve user interaction and data organization
+
+- Upgrade to a better system : not .txt file
+
+And many other aspect of a real command-line wiki.
