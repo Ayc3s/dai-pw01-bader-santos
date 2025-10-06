@@ -1,6 +1,6 @@
 <div style="display: flex; align-items: center; justify-content: space-between;">
-  <h1>DAI 2025 - project 01 - Bader Gabriel Santos Mauro</h1>
   <img src="img/heig_logo.png" alt="Wiki CLI Logo" width="200" height="100" style="border-radius: 10px;"/>
+  <h1>DAI 2025 - project 01 - Bader Gabriel Santos Mauro</h1>
 </div>
 
 # Project description
