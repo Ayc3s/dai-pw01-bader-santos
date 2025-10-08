@@ -1,3 +1,15 @@
+/*
+* Project Name :     dai-pw01-bader-santos
+* Version      :     1.0
+* Date         :     08.10.2025
+* Autheur      :     Gabriel Bader, Mauro Santos
+* File         :     Main.java
+* Project      :     Wiki is a Java-based command-line application designed to help users easily
+*                    manage personal notes or structured information — much like a simplified offline
+*                    wiki system. It allows you to create, read, update, and delete text-based entries
+*                    stored in a plain .txt file, using simple terminal commands.
+*/
+
 package ch.heigvd;
 
 import picocli.CommandLine;
@@ -24,11 +36,14 @@ class Main implements Callable<Integer> {
     so we do not have 100 if else.
 
     It was suggested by Chatgpt, especially the "setter" to set the enum
-     */
+
+    We saw the exemple of yours "02-01-java-ios" solution, but we thought that the scope of this project, that was enough and more practical to do it that way.
+    (not splitting every command in a different file).
+    */
 
     enum Mode { SHOWALL, ADD, MODIFY, SHOW, DELETE, DEFAULT}
 
-    String arg;
+    String arg; // The variable used to know what command to execute
 
     @CommandLine.Parameters(
             index = "0",
@@ -66,6 +81,7 @@ class Main implements Callable<Integer> {
     void setDelete(String s1) {mode = Mode.DELETE; arg = s1;}
 
 
+    // switch function to execute each command
     @Override
     public Integer call() {
         switch(mode) {
