@@ -83,13 +83,19 @@ Open and create you own wiki
 
 In this section, we will see a detailed exemple of the usage of our **wiki** :
 
-1. Empty textfile at the root of the directory :
-2. add multiple entries
-3. Modify an existing entries
-4. Show all
-5. Delete an entry
-6. Show specifc entry
+1. Empty text file with no command :
 
+![Empty text file with no command](img/new_wiki_no_cmd.png)
+
+2. add and show new entry :
+
+![add and show new entry](img/show_add.png)
+
+3. modify and delete entry :
+![modify and delete entry](img/modify_del.png)
+
+4. Exemple of .txt file (end of this exemple)
+![txt file exemple](img/exempleFiletxt.png)
 
 
 # To continue
