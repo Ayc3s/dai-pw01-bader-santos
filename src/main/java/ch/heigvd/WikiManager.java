@@ -1,3 +1,12 @@
+/*
+ * Project Name :     dai-pw01-bader-santos
+ * File         :     WikiManager.java
+ * Autheur      :     Gabriel Bader, Mauro Santos
+ * Goal         :     This file is the main logic to manage file such as write/open/close
+ *                    and to manage the wiki
+ *
+*/
+
 package ch.heigvd;
 import java.io.*;
 import java.nio.charset.StandardCharsets;
@@ -26,6 +35,7 @@ public class WikiManager {
             return commands;
         }
     }
+
     static void WriteFile(String filename, ArrayList<Command> commands){
         try {
             Writer writer = new FileWriter(filename, StandardCharsets.UTF_8);
