@@ -108,3 +108,14 @@ For future improvements, we would like to:
 - Upgrade to a better system : not .txt file
 
 And many other aspect of a real command-line wiki.
+
+
+
+# AI use
+
+For this project, the only use of AI was:
+
+- The example for the enum (explained in the code)
+  - Quick summary: AI showed us a way to implement an enum that allows a switch over all the commands. We did not copy/past, only took exemple of it
+
+AI helped us correct English grammar in the README. (We want to point out that we wrote it first.)

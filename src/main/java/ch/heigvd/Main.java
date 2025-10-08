@@ -61,25 +61,27 @@ class Main implements Callable<Integer> {
     @Option(
             names = {"-a","--ADD"},
             description = "Add new entry to the wiki:\n Arg1 : entry name\n Arg2 : Description\n" +
-                    " Exemple : --a \"nano myNewDescription\"")
+                    " Exemple : -a \"nano myNewDescription\"")
     void setAdd(String s1) {mode = Mode.ADD; arg = s1;}
 
     @Option(
             names = {"-m","--MODIFY"},
-            description = "Modify an existing entry : --m \"nameWikiEntry newName myNewDescription\"\n" +
-                    "Exemple : --m nano nanov2 \"new decription\"")
+            description = "Modify an existing entry : -m \"nameWikiEntry newName myNewDescription\"\n" +
+                    "Exemple : -m nano nanov2 \"new decription\"")
     void setModifiy(String s1) {mode = Mode.MODIFY; arg = s1;}
 
     @Option(
             names = {"-sh","--SHOW"},
-            description = "Show an existing entry :\n Exemple: --sh \"name\"")
+            description = "Show an existing entry :\n Exemple: -sh \"name\"")
     void setShow(String s1) {mode = Mode.SHOW; arg = s1;}
 
     @Option(
             names = {"-del","--DELETE"},
-            description = "Delete an existing entry :\n Exemple: --del \"name\"")
+            description = "Delete an existing entry :\n Exemple: -del \"name\"")
     void setDelete(String s1) {mode = Mode.DELETE; arg = s1;}
 
+    @CommandLine.Spec
+    CommandLine.Model.CommandSpec spec;
 
     // switch function to execute each command
     @Override
@@ -90,7 +92,8 @@ class Main implements Callable<Integer> {
             case MODIFY -> WikiManager.Modify(filePath,arg);
             case SHOW -> WikiManager.Show(filePath,arg);
             case DELETE -> WikiManager.Delete(filePath,arg);
-            default -> System.out.println("ceci est la commande pour defaut lcase\n");
+            default -> {
+                spec.commandLine().usage(System.out); return 1;}
         }
         return 0;
     }
