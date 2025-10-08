@@ -13,6 +13,7 @@ public class WikiManager {
 
             String line;
             while ((line = br.readLine()) != null) {
+                if (line.trim().isEmpty()) continue; //skips line if it is only composed of letters
                 String arr[] = line.split(" ", 2);
                 commands.add(new Command(arr[0], arr[1]));
             }
