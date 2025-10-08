@@ -26,7 +26,7 @@ class Main implements Callable<Integer> {
     It was suggested by Chatgpt, especially the "setter" to set the enum
      */
 
-    enum Mode { SHOWALL, ADD, MODIFY, SHOW, DELETE}
+    enum Mode { SHOWALL, ADD, MODIFY, SHOW, DELETE, DEFAULT}
 
     String arg;
 
@@ -36,7 +36,7 @@ class Main implements Callable<Integer> {
             defaultValue = "wiki.txt")
     protected String filePath;
 
-    Mode mode = null; // valeur par défaut
+    Mode mode = Mode.DEFAULT; // valeur par défaut
 
     @Option(
             names = {"-sa", "--showall"},
