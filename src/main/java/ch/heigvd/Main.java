@@ -13,13 +13,7 @@
 package ch.heigvd;
 
 import picocli.CommandLine;
-import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
-import picocli.CommandLine.Parameters;
-
-import java.io.File;
-import java.io.IOException;
-import java.nio.file.Files;
 import java.util.concurrent.Callable;
 
 

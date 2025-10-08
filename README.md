@@ -63,19 +63,18 @@ Open and create you own wiki
   -a, --ADD=<add>          Add new entry to the wiki:
                             Arg1 : entry name
                             Arg2 : Description
-                            Exemple : --a "nano myNewDescription"
+                            Exemple : -a "nano myNewDescription"
       -del, --DELETE=<delete>
                            Delete an existing entry :
-                            Exemple: --del "name"
+                            Exemple: -del "name"
   -h, --help               Show this help message and exit.
-  -m, --MODIFY=<modifiy>   Modify an existing entry : --m "nameWikiEntry
-                             newName myNewDescription"
-                           Exemple : --m nano nanov2 "new decription"
+  -m, --MODIFY=<modifiy>   Modify an existing entry : -m "nameWikiEntry newName
+                             myNewDescription"
+                           Exemple : -m nano nanov2 "new decription"
       -sa, --showall       Show all entry of the wiki
       -sh, --SHOW=<show>   Show an existing entry :
-                            Exemple: --sh "name"
+                            Exemple: -sh "name"
   -V, --version            Print version information and exit.
-
 ```
 ---
 
